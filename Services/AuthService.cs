@@ -57,6 +57,22 @@ public class AuthService : IAuthService
 
     public User? GetUserByUsername(string username) => _users.FirstOrDefault(u => u.Username.Equals(username, StringComparison.OrdinalIgnoreCase));
 
+    public User? GetUserById(int userId) => _users.FirstOrDefault(u => u.Id == userId);
+
+    public bool UpdateUserProfile(int userId, double? heightCm, double? weightKg, string programName, string about)
+    {
+        var user = GetUserById(userId);
+        if (user == null) return false;
+
+        user.HeightCm = heightCm;
+        user.WeightKg = weightKg;
+        user.ProgramName = programName;
+        user.About = about;
+
+        Persist();
+        return true;
+    }
+
     private void Persist() => _jsonStore.Save(FileName, _users);
 
     private string HashPassword(string password)

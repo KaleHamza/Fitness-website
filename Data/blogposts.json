@@ -1,0 +1,34 @@
+[
+  {
+    "Id": 1,
+    "Title": "Fitness Ba\u015Flang\u0131\u00E7 Rehberi",
+    "Content": "Fitness yolculu\u011Funuza ba\u015Flamak i\u00E7in ipu\u00E7lar\u0131: D\u00FCzenli egzersiz yap\u0131n, beslenmenize dikkat edin, yeterli uyku al\u0131n. Ba\u015Flang\u0131\u00E7 seviyesinde haftada 3-4 g\u00FCn antrenman yeterli olabilir.",
+    "PublishedDate": "2026-03-29T13:46:00.9194908+03:00",
+    "Author": "Admin",
+    "UserId": null
+  },
+  {
+    "Id": 2,
+    "Title": "Beslenme \u00D6nerileri",
+    "Content": "Sa\u011Fl\u0131kl\u0131 beslenme i\u00E7in \u00F6neriler: Protein, karbonhidrat ve ya\u011F dengesini sa\u011Flay\u0131n. Bol su i\u00E7in, sebze ve meyve t\u00FCketimi art\u0131r\u0131n. \u0130\u015Flenmi\u015F g\u0131dalardan ka\u00E7\u0131n\u0131n.",
+    "PublishedDate": "2026-03-28T13:46:00.9196387+03:00",
+    "Author": "Admin",
+    "UserId": null
+  },
+  {
+    "Id": 3,
+    "Title": "Antrenman Motivasyonu",
+    "Content": "Motivasyonunuzu y\u00FCksek tutmak i\u00E7in hedefler belirleyin, ilerlemenizi takip edin, arkada\u015Flar\u0131n\u0131zla birlikte egzersiz yap\u0131n. K\u00FC\u00E7\u00FCk ad\u0131mllarla ba\u015Flay\u0131n ve sab\u0131rl\u0131 olun.",
+    "PublishedDate": "2026-03-27T13:46:00.9196396+03:00",
+    "Author": "Admin",
+    "UserId": null
+  },
+  {
+    "Id": 4,
+    "Title": "\u0130l yazd\u0131\u011F\u0131m post",
+    "Content": "\u0130LKD\u0130R.",
+    "PublishedDate": "2026-03-30T13:46:13.4856061+03:00",
+    "Author": "111",
+    "UserId": 2
+  }
+]

@@ -2,30 +2,31 @@
     ViewData["Title"] = "Fitness Hub";
 }
 
-<div class="home-content-overlay fade-in-element">
-    <h1 class="fade-in-element">Fitness Hub</h1>
+<section class="hero-wrap fade-in-element">
+    <h1 class="page-hero">Fitness Hub</h1>
+    <p class="lead">Daha güçlü, daha harekete hazır bir bedene giden yolculuğunuz burada başlıyor. Egzersiz rehberleri, beslenme setleri ve motivasyon desteğiyle her gün daha iyi.</p>
 
-    <p class="fade-in-element" style="font-size: 1.1rem; margin-bottom: 2rem; color: #666;">Your ultimate destination for fitness tips, exercises, and nutrition advice.</p>
-
-    <div style="display: flex; gap: 1.5rem; margin-top: 2rem;">
-        <a href="@Url.Action("Index", "Exercises")" class="btn fade-in-element">Exercises</a>
-        <a href="@Url.Action("Index", "Blog")" class="btn fade-in-element">Blog</a>
+    <div class="hero-buttons">
+        <a href="@Url.Action("Index", "Exercises")" class="btn btn-primary">Egzersizlere Bak</a>
+        <a href="@Url.Action("Index", "Blog")" class="btn btn-success">Blog Yazılarına Gözat</a>
     </div>
+</section>
 
-    <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 3rem 0;">
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
-        <div class="home-info-box">
-            <h3>Strength Training</h3>
-            <p>Build muscle and strength with our curated exercises.</p>
+<section>
+    <h2 class="section-title">Öne Çıkan Özellikler</h2>
+    <div class="feature-grid">
+        <div class="feature-card card-body fade-in-element">
+            <h4>Akıllı Antrenman Planları</h4>
+            <p>Seviyenize uygun programı seçin; haftalık ilerlemeyi takip edin.</p>
         </div>
-        <div class="home-info-box">
-            <h3>Cardio Workouts</h3>
-            <p>Improve your endurance and heart health.</p>
+        <div class="feature-card card-body fade-in-element">
+            <h4>Beslenme ve Takip</h4>
+            <p>Bilinçli gıda tercihi yapın, kütle ve forma uygun ögün planları kullanın.</p>
         </div>
-        <div class="home-info-box">
-            <h3>Nutrition Tips</h3>
-            <p>Eat right to fuel your body.</p>
+        <div class="feature-card card-body fade-in-element">
+            <h4>Sosyal Motivasyon</h4>
+            <p>Blog yorumları ve profil paylaşımıyla destekli bir topluluk kazanın.</p>
         </div>
     </div>
-</div>
+</section>
+

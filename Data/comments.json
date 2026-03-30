@@ -1,0 +1,10 @@
+[
+  {
+    "Id": 1,
+    "BlogPostId": 4,
+    "Author": "111",
+    "Content": "ilk yorumdur",
+    "CreatedDate": "2026-03-30T13:46:22.5303693+03:00",
+    "UserId": 2
+  }
+]

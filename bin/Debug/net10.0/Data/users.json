@@ -1,0 +1,26 @@
+[
+  {
+    "Id": 1,
+    "Username": "admin",
+    "Email": "admin@fitness.com",
+    "PasswordHash": "JAvlGPq9JyTdtvBO6x2llnRI1\u002BgxwIyPqCKAn3THIKk=",
+    "CreatedDate": "2026-03-30T13:45:30.9209026+03:00",
+    "HeightCm": null,
+    "WeightKg": null,
+    "ProgramName": "",
+    "About": "",
+    "BMI": null
+  },
+  {
+    "Id": 2,
+    "Username": "111",
+    "Email": "111@gmail.com",
+    "PasswordHash": "9uCh4qxBlFqap/\u002BKiqoM68EqO8yYGpKa1c\u002BBCgkOEa4=",
+    "CreatedDate": "2026-03-30T13:45:45.6724132+03:00",
+    "HeightCm": 189,
+    "WeightKg": 82,
+    "ProgramName": "Powerlifting program\u0131",
+    "About": "Hamzay\u0131m hamza",
+    "BMI": 23
+  }
+]

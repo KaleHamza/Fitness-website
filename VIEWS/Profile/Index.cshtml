@@ -1,0 +1,93 @@
+@model webbir.Models.User
+
+@{
+    ViewData["Title"] = "Profilim";
+}
+
+<div class="profile-card" style="max-width: 840px; margin: 1.5rem auto; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.24); border-radius: 16px; padding: 2rem; backdrop-filter: blur(10px);">
+    <h1 style="margin-bottom: 1rem; color: #ffffff; text-shadow: 0 1px 6px rgba(0,0,0,0.4);">@Model.Username - Profil</h1>
+    <div style="font-size: .95rem; margin-bottom: 1.3rem; color: #e5e5e5;">
+        <span style="margin-right: 1.4rem;"><strong>Email:</strong> @Model.Email</span>
+        <span><strong>Kayıt Tarihi:</strong> @Model.CreatedDate.ToString("dd.MM.yyyy")</span>
+    </div>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">@TempData["Success"]</div>
+    }
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">@ViewBag.Error</div>
+    }
+
+    <form method="post" class="profile-form" style="display: grid; gap: 1rem;">
+        <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
+            <label style="color: #f0f0f0; font-weight: 600;">Hakkımda</label>
+            <textarea name="about" class="form-control" rows="3" style="background: rgba(0,0,0,0.35); color: #fff; border: 1px solid rgba(255,255,255,0.35);">@Model.About</textarea>
+        </div>
+
+        <div class="row g-3">
+            <div class="col-md-4">
+                <label class="form-label" style="color: #f0f0f0;">Boy (cm)</label>
+                <input id="heightInput" type="number" name="heightCm" step="0.1" class="form-control" style="background: rgba(0,0,0,0.35); color: #fff; border: 1px solid rgba(255,255,255,0.35);" value="@(Model.HeightCm?.ToString("F1") ?? string.Empty)">
+            </div>
+            <div class="col-md-4">
+                <label class="form-label" style="color: #f0f0f0;">Kilo (kg)</label>
+                <input id="weightInput" type="number" name="weightKg" step="0.1" class="form-control" style="background: rgba(0,0,0,0.35); color: #fff; border: 1px solid rgba(255,255,255,0.35);" value="@(Model.WeightKg?.ToString("F1") ?? string.Empty)">
+            </div>
+            <div class="col-md-4">
+                <label class="form-label" style="color: #f0f0f0;">Vücut Kitle Endeksi (BMI)</label>
+                <input id="bmiValue" type="text" readonly class="form-control" style="background: rgba(0,0,0,0.45); color: #fff; border: 1px solid rgba(255,255,255,0.35);" value="@(Model.BMI?.ToString("F1") ?? "—")">
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
+            <label style="color: #f0f0f0; font-weight: 600;">Seçtiğim Program</label>
+            <input id="programInput" type="text" name="programName" class="form-control" style="background: rgba(0,0,0,0.35); color: #fff; border: 1px solid rgba(255,255,255,0.35);" value="@Model.ProgramName" placeholder="Örn: 4 haftalık güç programı">
+        </div>
+
+        <button type="submit" class="btn btn-success" style="border-radius: 12px; font-weight: 700;">Profili Güncelle</button>
+    </form>
+
+    <div style="margin-top: 1.2rem; background: rgba(0,0,0,0.35); padding: 14px; border-radius: 10px; color: #dcdcdc; border: 1px solid rgba(255,255,255,0.18);">
+        <h5 style="margin-bottom: 0.75rem;">BMI Değerlendirme</h5>
+        <p id="bmiLabel" style="margin: 0;">@((Model.BMI.HasValue) ? GetBmiCategory(Model.BMI.Value) : "Boy ve kilo girildiğinde hesaplanır")</p>
+    </div>
+</div>
+
+@functions {
+    private string GetBmiCategory(double bmi)
+    {
+        if (bmi < 18.5) return "Zayıf";
+        if (bmi < 25) return "Normal";
+        if (bmi < 30) return "Fazla Kilolu";
+        return "Obez";
+    }
+}
+
+<script>
+    function updateBmi() {
+        var h = parseFloat(document.getElementById('heightInput').value);
+        var w = parseFloat(document.getElementById('weightInput').value);
+        var bmiField = document.getElementById('bmiValue');
+        var bmiLabel = document.getElementById('bmiLabel');
+
+        if (!isNaN(h) && h > 0 && !isNaN(w) && w > 0) {
+            var bmi = (w / Math.pow(h / 100, 2));
+            var rounded = Math.round(bmi * 10) / 10;
+            bmiField.value = rounded.toFixed(1);
+
+            if (rounded < 18.5) bmiLabel.textContent = 'Zayıf (18.5 altında)';
+            else if (rounded < 25) bmiLabel.textContent = 'Normal (18.5-24.9)';
+            else if (rounded < 30) bmiLabel.textContent = 'Fazla Kilolu (25-29.9)';
+            else bmiLabel.textContent = 'Obez (30 ve üzeri)';
+        } else {
+            bmiField.value = '—';
+            bmiLabel.textContent = 'Boy ve kilo girildiğinde hesaplanır';
+        }
+    }
+
+    document.getElementById('heightInput').addEventListener('input', updateBmi);
+    document.getElementById('weightInput').addEventListener('input', updateBmi);
+</script>

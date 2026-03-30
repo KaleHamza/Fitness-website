@@ -94,4 +94,7 @@ D:\Projeler\Web\webbir\obj\Debug\net10.0\webbir.genruntimeconfig.cache
 D:\Projeler\Web\webbir\obj\Debug\net10.0\ref\webbir.dll
 D:\Projeler\Web\webbir\obj\Debug\net10.0\compressed\m0f6b4ucho-{0}-pexu9im7vx-pexu9im7vx.gz
 D:\Projeler\Web\webbir\obj\Debug\net10.0\compressed\p7r4u0cx5q-{0}-pexu9im7vx-pexu9im7vx.gz
-D:\Projeler\Web\webbir\obj\Debug\net10.0\compressed\xzxl05j2f3-{0}-24md24yxsi-24md24yxsi.gz
+D:\Projeler\Web\webbir\bin\Debug\net10.0\Data\blogposts.json
+D:\Projeler\Web\webbir\bin\Debug\net10.0\Data\comments.json
+D:\Projeler\Web\webbir\bin\Debug\net10.0\Data\users.json
+D:\Projeler\Web\webbir\obj\Debug\net10.0\compressed\xzxl05j2f3-{0}-565hh7aeu5-565hh7aeu5.gz
