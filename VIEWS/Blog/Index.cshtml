@@ -1,0 +1,31 @@
+@model IEnumerable<webbir.Models.BlogPost>
+
+@{
+    ViewData["Title"] = "Blog";
+    var username = Context.Session.GetString("Username");
+}
+
+<div class="blog-page" style="display: flex; flex-direction: column; gap: 1.5rem;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <h1 style="margin: 0; font-size: 2rem; color: #fff; text-transform: uppercase; letter-spacing: 1px; border-bottom: 3px solid #00ff00; padding-bottom: 0.2rem;">Blog</h1>
+    @if (!string.IsNullOrEmpty(username))
+    {
+        <a href="@Url.Action("Create", "Blog")" class="btn" style="background: #1a2a6c; color: #fff; border: none;">Write a Post</a>
+    }
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+    @foreach (var post in Model)
+    {
+        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between; min-height: 260px; border-radius: 14px; overflow: hidden; border: 1px solid #e0e0e0; box-shadow: 0 8px 18px rgba(0,0,0,0.08);">
+            <div class="card-body" style="padding: 1.3rem;">
+                <h5 class="card-title" style="margin-top: 0; margin-bottom: 0.8rem; font-size: 1.2rem;">@post.Title</h5>
+                <p style="color: #666; margin: 0 0 0.8rem 0; line-height: 1.4;">@(post.Content.Length > 120 ? post.Content.Substring(0, 120) + "..." : post.Content)</p>
+            </div>
+            <div style="background: #f6f6f6; padding: 0.8rem 1.1rem; border-top: 1px solid #ddd;">
+                <p style="margin: 0; color: #999; font-size: 0.8rem;">@post.PublishedDate.ToString("dd/MM/yyyy") • <strong>@post.Author</strong></p>
+                <a href="@Url.Action("Details", "Blog", new { id = post.Id })" class="btn" style="margin-top: 0.6rem; width: 100%;">Read More</a>
+            </div>
+        </div>
+    }
+</div>

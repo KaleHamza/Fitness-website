@@ -1,0 +1,21 @@
+@model IEnumerable<webbir.Models.Exercise>
+
+@{
+    ViewData["Title"] = "Exercises";
+}
+
+<h1>Exercises</h1>
+
+<div class="exercises-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+    @foreach (var exercise in Model)
+    {
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@exercise.Name</h5>
+                <p style="margin: 1rem 0;">@exercise.Description</p>
+                <p style="font-size: 0.9rem; margin-bottom: 1rem;">@exercise.Category</p>
+                <a href="@Url.Action("Details", "Exercises", new { id = exercise.Id })" class="btn">Details</a>
+            </div>
+        </div>
+    }
+</div>

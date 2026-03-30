@@ -1,0 +1,256 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  background-image: url('/images/background.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.navbar {
+  background: #fff !important;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.navbar-brand, .nav-link, .nav-item-blue {
+  color: #1a2a6c !important;
+  font-weight: 600;
+}
+
+.nav-link:hover, .nav-item-blue:hover {
+  color: #0f173d !important;
+}
+
+.btn {
+  background: #333;
+  color: #fff;
+  border: none;
+  font-weight: 500;
+}
+
+.btn:hover {
+  background: #555;
+  color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #333;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+.card {
+  background: #fff;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  color: #333;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-title {
+  color: #333;
+  font-weight: 600;
+}
+
+.text-muted {
+  color: #999 !important;
+}
+
+footer {
+  background: #fff;
+  color: #666;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 2rem;
+}
+
+.container {
+  max-width: 960px;
+}
+
+.home-content-overlay {
+  background-color: rgba(0, 255, 0, 0.25);
+  padding: 30px;
+  border-radius: 12px;
+  margin: 20px auto;
+  max-width: 960px;
+  color: #000;
+  border: 2px solid rgba(0, 255, 0, 0.9);
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+}
+
+.home-info-box {
+  background-color: rgba(0, 255, 0, 0.85);
+  border: 1px solid #00ff00;
+  border-radius: 12px;
+  padding: 18px;
+  color: #000;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
+}
+
+.home-info-box h3,
+.home-info-box p {
+  color: #000;
+}
+
+.home-content-overlay h1,
+.home-content-overlay p,
+.home-content-overlay .btn {
+  color: #000 !important;
+}
+
+.home-content-overlay h1 {
+  font-size: 4rem;
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto 1rem;
+  letter-spacing: 0.05em;
+}
+
+.home-content-overlay p {
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+/* Genel geçişler ve hover efektleri */
+.btn,
+.nav-link,
+.card,
+.home-info-box {
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover,
+.nav-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
+}
+
+.home-info-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 255, 0, 0.45);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Exercise page colors */
+.exercises-grid .card {
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.exercises-grid .card-title,
+.exercises-grid .card-body p,
+.exercises-grid .card-body a.btn {
+  color: #fff !important;
+}
+
+.exercises-grid .card-body p {
+  color: #ebebeb !important;
+}
+
+.exercises-grid .card-body a.btn {
+  background: #1a2a6c;
+  border: 1px solid #00ff00;
+}
+
+/* Fade-in animasyon */
+.fade-in-element {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in-element.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Tema modları */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #070f19;
+    color: #ddd;
+  }
+  .navbar,
+  footer {
+    background-color: #0a1a2b !important;
+    color: #fff;
+  }
+  .nav-link,
+  .navbar-brand {
+    color: #9fb4ff !important;
+  }
+  .home-content-overlay,
+  .home-info-box,
+  .card,
+  .btn {
+    background-color: rgba(15, 30, 45, 0.9) !important;
+    color: #fff !important;
+  }
+}
+
+/* Blog yazıları beyaz ve okunaklı olsun */
+.blog-page h1,
+.blog-page h3,
+.blog-page p,
+.blog-page .card-title,
+.blog-page .card-body p,
+.blog-page .card-body h5,
+.blog-page .card-text {
+  color: #fff !important;
+}
+
+.blog-page .card {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.blog-page .card-body {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.blog-page a.btn {
+  background: #003366;
+  color: #fff !important;
+  border: 1px solid #00ff00;
+}
+
+.blog-page .blog-post-meta,
+.blog-page .comment-meta {
+  color: #dddddd !important;
+}
+

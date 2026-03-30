@@ -1,0 +1,61 @@
+@model webbir.Models.BlogPost
+
+@{
+    ViewData["Title"] = "Blog Post";
+    var comments = ViewBag.Comments as IEnumerable<webbir.Models.Comment> ?? new List<webbir.Models.Comment>();
+    var username = Context.Session.GetString("Username");
+}
+
+<div class="blog-page" style="max-width: 700px; background: rgba(0, 0, 0, 0.25); padding: 20px; border-radius: 14px;">
+    <h1>@Model.Title</h1>
+    
+    <p style="color: #999; font-size: 0.9rem; margin-bottom: 2rem;">@Model.PublishedDate.ToString("dd/MM/yyyy") by <strong>@Model.Author</strong></p>
+
+    <p style="color: #333; font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem;">@Model.Content</p>
+
+    <a href="@Url.Action("Index", "Blog")" class="btn">Back to Blog</a>
+
+    <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 2rem 0;">
+
+    <h3 style="margin-bottom: 1.5rem;">Comments (@comments.Count())</h3>
+
+    @if (comments.Any())
+    {
+        @foreach (var comment in comments)
+        {
+            <div style="background: #f9f9f9; padding: 1rem; margin-bottom: 1rem; border-left: 3px solid #333; border-radius: 4px;">
+                <p style="color: #666; margin: 0 0 0.5rem 0; font-size: 0.9rem;">
+                    <strong>@comment.Author</strong> 
+                    <span style="color: #999;">• @comment.CreatedDate.ToString("dd/MM/yyyy HH:mm")</span>
+                </p>
+                <p style="color: #333; margin: 0;">@comment.Content</p>
+            </div>
+        }
+    }
+    else
+    {
+        <p style="color: #999; margin-bottom: 2rem;">No comments yet. Be the first to comment!</p>
+    }
+
+    <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 2rem 0;">
+
+    <h3 style="margin-bottom: 1rem;">Add Your Comment</h3>
+
+    <form method="post" action="@Url.Action("AddComment", "Blog")">
+        <input type="hidden" name="postId" value="@Model.Id">
+        
+        <div style="margin-bottom: 1rem;">
+            <textarea name="content" rows="4" required placeholder="Write your comment here..." style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 4px; font-family: inherit; font-size: 1rem; resize: vertical;"></textarea>
+        </div>
+
+        <button type="submit" class="btn">Post Comment</button>
+
+        @if (string.IsNullOrEmpty(username))
+        {
+            <p style="color: #999; font-size: 0.9rem; margin-top: 1rem;">
+                Posting as <strong>Anonymous</strong> • 
+                <a href="@Url.Action("Login", "Auth")" style="color: #333;">Login</a> to post as your account
+            </p>
+        }
+    </form>
+</div>

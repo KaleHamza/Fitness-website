@@ -1,0 +1,13 @@
+@model webbir.Models.Exercise
+
+@{
+    ViewData["Title"] = "Exercise Details";
+}
+
+<h1>@Model.Name</h1>
+
+<p>@Model.Description</p>
+
+<p>Category: @Model.Category</p>
+
+<a href="@Url.Action("Index", "Exercises")" class="btn btn-secondary">Back to List</a>

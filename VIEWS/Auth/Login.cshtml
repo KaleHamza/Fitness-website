@@ -1,0 +1,28 @@
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+
+@if (!string.IsNullOrEmpty(ViewBag.Error))
+{
+    <div style="color: #d32f2f; margin-bottom: 1rem;">@ViewBag.Error</div>
+}
+
+<form method="post" style="max-width: 400px;">
+    <div style="margin-bottom: 1rem;">
+        <label for="username" style="display: block; margin-bottom: 0.5rem;">Username</label>
+        <input type="text" id="username" name="username" required style="width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px;">
+    </div>
+
+    <div style="margin-bottom: 1.5rem;">
+        <label for="password" style="display: block; margin-bottom: 0.5rem;">Password</label>
+        <input type="password" id="password" name="password" required style="width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px;">
+    </div>
+
+    <button type="submit" class="btn">Login</button>
+
+    <p style="margin-top: 1rem; color: #666;">
+        Don't have an account? <a href="@Url.Action("Register")" style="color: #333; font-weight: 500;">Register here</a>
+    </p>
+</form>

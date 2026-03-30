@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Fitness Hub";
+}
+
+<div class="home-content-overlay fade-in-element">
+    <h1 class="fade-in-element">Fitness Hub</h1>
+
+    <p class="fade-in-element" style="font-size: 1.1rem; margin-bottom: 2rem; color: #666;">Your ultimate destination for fitness tips, exercises, and nutrition advice.</p>
+
+    <div style="display: flex; gap: 1.5rem; margin-top: 2rem;">
+        <a href="@Url.Action("Index", "Exercises")" class="btn fade-in-element">Exercises</a>
+        <a href="@Url.Action("Index", "Blog")" class="btn fade-in-element">Blog</a>
+    </div>
+
+    <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 3rem 0;">
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+        <div class="home-info-box">
+            <h3>Strength Training</h3>
+            <p>Build muscle and strength with our curated exercises.</p>
+        </div>
+        <div class="home-info-box">
+            <h3>Cardio Workouts</h3>
+            <p>Improve your endurance and heart health.</p>
+        </div>
+        <div class="home-info-box">
+            <h3>Nutrition Tips</h3>
+            <p>Eat right to fuel your body.</p>
+        </div>
+    </div>
+</div>
